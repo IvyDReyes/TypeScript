@@ -1,5 +1,5 @@
 //An abstract class is a class that cannot be instantiated directly, it is use as base classes from which other classes can be derived. Abstract classes can be use to define a common structure but don't want to be used directly.
-abstract class Animal {
+abstract class Animals {
 
 }
 
@@ -24,8 +24,8 @@ class Dog extends Animal2 {
     }
 }
 
-const doggy = new Dog();
-doggy.makeSound(); // Woof!
+const doggy4 = new Dog();
+doggy4.makeSound(); // Woof!
 
 
 //Finally, it's a good practice to clearly specify that the abstract method should be publicly accessible. 
