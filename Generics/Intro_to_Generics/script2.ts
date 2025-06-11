@@ -92,7 +92,7 @@ Error: TypeScript doesn't know if "id" exists
 */
 
 
-// Added contraints T extends { id: any } , that only allow types that have an id property.
+// Added contraints T extends { department: any } , that only allow types that have an department property.
 function getDep<T extends { department: any }> (object: T): T {
     return object.department;
 }
