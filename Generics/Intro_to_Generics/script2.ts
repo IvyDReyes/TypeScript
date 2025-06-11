@@ -71,29 +71,65 @@ let employee3 = {
 console.log(getId(employee3));
 
 
-abstract class PersonO {
-    id: any
+
+/*
+
+Can replace the 'any' type with 'T', which allows our function to take any data type.
+
+function getDep<T> (object: T): T {
+    return object.department;
 }
 
-// class PersonP extends PersonO {
-    
-// }
-// function getPosition<PersonP> (object: PersonO): any {
-//     return object.id;
-// }
-
-function getPosition<T extends PersonO> (object: T): any {
-    return object.id;
-}
-// Can also replace the any type with T, which allows our function to take any data type.
-// function getPosition<T extends { id: any }> (object: T): any {
-//     return object.id;
-
-// }
-
-let employee4 = {
-    id: 30,
-    position: 'IT'
+let employe101 = {
+    id: 12,
+    department: 'research'
 };
 
-console.log(getPosition(employee4));
+console.log(getDep(employe101));
+
+Error: TypeScript doesn't know if "id" exists
+
+*/
+
+
+// Added contraints T extends { id: any } , that only allow types that have an id property.
+function getDep<T extends { department: any }> (object: T): T {
+    return object.department;
+}
+
+let employe101 = {
+    id: 12,
+    department: 'research'
+};
+
+console.log(getDep(employe101));
+
+
+
+
+//Can also define the specific type of the return type, for example string
+function getSubject<T extends { subject: any }> (object: T): string {
+    return object.subject.toString();
+}
+
+let student90 = {
+    studentId: 87,
+    subject: "math" 
+};
+
+console.log(getSubject(student90));
+
+
+
+
+function genericFunction<A>(arg: A): A {
+    return arg;
+}
+let str: string = genericFunction<string>("Hi!");
+console.log(str);
+
+
+
+/* 
+The advantage of using TypeScriipt generics: It allows functions, interfaces and classes to work with multiple data types.
+*/
